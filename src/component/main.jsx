@@ -5,7 +5,7 @@ import { Score } from "./score.jsx";
 import { Level } from "./gameLevel.jsx";
 import { Result } from "./result.jsx";
 
-export function Main() {
+export function Main({ setKey }) {
   const [gamePlay, setGamePlay] = useState(false);
   const [randomList, setRandomList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
@@ -18,7 +18,7 @@ export function Main() {
       <header>
         <Guide />
         <Score currentScore={score} totalScore={totalScore} />
-        {endGame && <Result result={score === totalScore} />}
+        {endGame && <Result setKey={setKey} result={score === totalScore} />}
       </header>
       <section>
         <List
