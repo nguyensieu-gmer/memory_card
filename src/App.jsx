@@ -7,15 +7,16 @@ import { Level } from "./component/gameLevel.jsx";
 function App() {
   const [gamePlay, setGamePlay] = useState(false);
   const [randomList, setRandomList] = useState([]);
+  const [score, setScore] = useState(0);
   const totalScore = randomList.length;
   console.log(randomList); // craft
   const mainComponent = (
     <main>
       <header>
-        <Guide /> <Score />
+        <Guide /> <Score currentScore={score} totalScore={totalScore} />
       </header>
       <section>
-        <List randomList={randomList} />
+        <List randomList={randomList} setScore={setScore} />
       </section>
     </main>
   );

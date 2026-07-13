@@ -1,6 +1,9 @@
-export function Card({ src, name, id }) {
+export function Card({ src, name, id, setScore }) {
+  function handleClick() {
+    setScore((prev) => prev + 1);
+  }
   return (
-    <button id={id} className="item">
+    <button onClick={handleClick} id={id} className="item">
       <div className="img_container">
         <img src={src} alt={name + " " + "pokemon"} />
       </div>

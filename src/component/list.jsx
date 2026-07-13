@@ -3,7 +3,7 @@ import { Card } from "./card.jsx";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
-export function List({ randomList }) {
+export function List({ randomList, setScore }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -33,6 +33,7 @@ export function List({ randomList }) {
           <Card
             key={item.id}
             id={item.id}
+            setScore={setScore}
             src={artWork ?? dreamWork}
             name={item.name}
           />
