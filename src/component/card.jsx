@@ -1,6 +1,23 @@
-export function Card({ src, name, id, setScore }) {
-  function handleClick() {
+export function Card({
+  cardActions,
+  src,
+  name,
+  id,
+  setScore,
+  winNumber,
+  score,
+}) {
+  function handleClick(e) {
+    const id = e.currentTarget.id;
+    if (cardActions.clickedCards.includes(id)) {
+      cardActions.setEndGame(true);
+      return;
+    }
+    cardActions.setClickedCards((prev) => [...prev, id]);
     setScore((prev) => prev + 1);
+    if (score + 1 == winNumber) {
+      cardActions.setEndGame(true);
+    }
   }
   return (
     <button onClick={handleClick} id={id} className="item">
