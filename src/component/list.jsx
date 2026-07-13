@@ -17,27 +17,45 @@ export function List({ cardActions, randomList, setScore, score }) {
         }),
       );
       if (!ignore) {
-        setList(pokemonList);
+        setList(
+          pokemonList.map((item) => {
+            return {
+              id: item.id,
+              name: item.name,
+              dreamWork: item.sprites.other.dream_world.front_default,
+              artWork: item.sprites.other["official-artwork"].front_default,
+            };
+          }),
+        );
       }
     }
     fetchData();
     return () => (ignore = true);
   }, [randomList]);
+  function shuffleList() {
+    setList((prev) => {
+      const newArr = [...prev];
+      for (let i = newArr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+      }
+      return newArr;
+    });
+  }
   return (
     <div className="grid_container">
       {list.map((item) => {
-        const dreamWork = item.sprites.other.dream_world.front_default;
-        const artWork = item.sprites.other["official-artwork"].front_default;
         return (
           <Card
             key={item.id}
             id={item.id}
             setScore={setScore}
-            src={artWork ?? dreamWork}
+            src={item.artWork ?? item.dreamWork}
             name={item.name}
             cardActions={cardActions}
             score={score}
             winNumber={randomList.length}
+            shuffleList={shuffleList}
           />
         );
       })}

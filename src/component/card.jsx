@@ -6,8 +6,10 @@ export function Card({
   setScore,
   winNumber,
   score,
+  shuffleList,
 }) {
   function handleClick(e) {
+    shuffleList();
     const id = e.currentTarget.id;
     if (cardActions.clickedCards.includes(id)) {
       cardActions.setEndGame(true);
