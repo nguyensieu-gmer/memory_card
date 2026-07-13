@@ -9,6 +9,7 @@ function App() {
   const [level, setLevel] = useState(5);
   const [gamePlay, setGamePlay] = useState(false);
   const randomList = radomPokemon(level);
+  console.log(randomList); // craft
   const mainComponent = (
     <main>
       <header>
