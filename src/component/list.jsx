@@ -30,7 +30,12 @@ export function List({ randomList }) {
         const dreamWork = item.sprites.other.dream_world.front_default;
         const artWork = item.sprites.other["official-artwork"].front_default;
         return (
-          <Card key={item.id} src={artWork ?? dreamWork} name={item.name} />
+          <Card
+            key={item.id}
+            id={item.id}
+            src={artWork ?? dreamWork}
+            name={item.name}
+          />
         );
       })}
     </div>
