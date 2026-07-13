@@ -4,8 +4,10 @@ import { Guide } from "./guide.jsx";
 import { Score } from "./score.jsx";
 import { Level } from "./gameLevel.jsx";
 import { Result } from "./result.jsx";
+import { Loading } from "./loading.jsx";
 
 export function Main({ setKey }) {
+  const [loading, setLoading] = useState(true);
   const [gamePlay, setGamePlay] = useState(false);
   const [randomList, setRandomList] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
@@ -14,21 +16,25 @@ export function Main({ setKey }) {
   const totalScore = randomList.length;
 
   const mainComponent = (
-    <main>
-      <header>
-        <Guide />
-        <Score currentScore={score} totalScore={totalScore} />
-        {endGame && <Result setKey={setKey} result={score === totalScore} />}
-      </header>
-      <section>
-        <List
-          cardActions={{ clickedCards, setClickedCards, setEndGame }}
-          randomList={randomList}
-          setScore={setScore}
-          score={score}
-        />
-      </section>
-    </main>
+    <>
+      {loading && <Loading />}
+      <main>
+        <header>
+          <Guide />
+          <Score currentScore={score} totalScore={totalScore} />
+          {endGame && <Result setKey={setKey} result={score === totalScore} />}
+        </header>
+        <section>
+          <List
+            cardActions={{ clickedCards, setClickedCards, setEndGame }}
+            randomList={randomList}
+            setScore={setScore}
+            score={score}
+            setLoading={setLoading}
+          />
+        </section>
+      </main>
+    </>
   );
   return gamePlay ? (
     mainComponent

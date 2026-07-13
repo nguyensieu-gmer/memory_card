@@ -3,7 +3,7 @@ import { Card } from "./card.jsx";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
-export function List({ cardActions, randomList, setScore, score }) {
+export function List({ cardActions, randomList, setScore, score, setLoading }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ export function List({ cardActions, randomList, setScore, score }) {
         }),
       );
       if (!ignore) {
+        setLoading(false);
         setList(
           pokemonList.map((item) => {
             return {
@@ -31,7 +32,7 @@ export function List({ cardActions, randomList, setScore, score }) {
     }
     fetchData();
     return () => (ignore = true);
-  }, [randomList]);
+  }, [randomList, setLoading]);
   function shuffleList() {
     setList((prev) => {
       const newArr = [...prev];
