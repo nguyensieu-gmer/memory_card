@@ -1,7 +1,9 @@
-export function Level({ setLevel, setGamePlay }) {
+import radomPokemon from "./randomListOfPokemon.js";
+
+export function Level({ setRandomList, setGamePlay }) {
   function handleClick(e) {
     const value = e.target.value;
-    setLevel(value);
+    setRandomList(radomPokemon(value));
     setGamePlay(true);
   }
   return (

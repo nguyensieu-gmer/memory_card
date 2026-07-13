@@ -2,13 +2,12 @@ import { useState } from "react";
 import { List } from "./component/list";
 import { Guide } from "./component/guide";
 import { Score } from "./component/score";
-import radomPokemon from "./component/randomListOfPokemon.js";
 import { Level } from "./component/gameLevel.jsx";
 
 function App() {
-  const [level, setLevel] = useState(5);
   const [gamePlay, setGamePlay] = useState(false);
-  const randomList = radomPokemon(level);
+  const [randomList, setRandomList] = useState([]);
+  const totalScore = randomList.length;
   console.log(randomList); // craft
   const mainComponent = (
     <main>
@@ -23,7 +22,7 @@ function App() {
   return gamePlay ? (
     mainComponent
   ) : (
-    <Level setLevel={setLevel} setGamePlay={setGamePlay} />
+    <Level setGamePlay={setGamePlay} setRandomList={setRandomList} />
   );
 }
 
