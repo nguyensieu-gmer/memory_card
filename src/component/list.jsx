@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { Card } from "./card.jsx";
-import radomPokemon from "./randomListOfPokemon.js";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
-const randomList = radomPokemon(5);
 
-export function List() {
+export function List({ randomList }) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -24,9 +22,8 @@ export function List() {
     }
     fetchData();
     return () => (ignore = true);
-  }, []);
-  //caft
-  console.log(list);
+  }, [randomList]);
+  console.log(list); //caft
   return (
     <div className="grid_container">
       {list.map((item) => {
