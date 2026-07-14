@@ -6,7 +6,7 @@ import { Level } from "./gameLevel.jsx";
 import { Result } from "./result.jsx";
 import { Loading } from "./loading.jsx";
 
-export function Main({ setKey }) {
+export function Main({ setKey, highestScore, setHighestScore }) {
   const [loading, setLoading] = useState(true);
   const [gamePlay, setGamePlay] = useState(false);
   const [randomList, setRandomList] = useState([]);
@@ -15,13 +15,21 @@ export function Main({ setKey }) {
   const [endGame, setEndGame] = useState(false);
   const totalScore = randomList.length;
 
+  if (score > highestScore) {
+    setHighestScore(score);
+  }
+
   const mainComponent = (
     <>
       {loading && <Loading />}
       <main>
         <header>
           <Guide />
-          <Score currentScore={score} totalScore={totalScore} />
+          <Score
+            currentScore={score}
+            totalScore={totalScore}
+            highestScore={highestScore}
+          />
           {endGame && <Result setKey={setKey} result={score === totalScore} />}
         </header>
         <section>
