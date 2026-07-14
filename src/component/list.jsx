@@ -3,7 +3,14 @@ import { Card } from "./card.jsx";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
-export function List({ cardActions, randomList, setScore, score, setLoading }) {
+export function List({
+  cardActions,
+  randomList,
+  setScore,
+  score,
+  setLoading,
+  loading,
+}) {
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -44,22 +51,24 @@ export function List({ cardActions, randomList, setScore, score, setLoading }) {
     });
   }
   return (
-    <div className="grid_container">
-      {list.map((item) => {
-        return (
-          <Card
-            key={item.id}
-            id={item.id}
-            setScore={setScore}
-            src={item.artWork ?? item.dreamWork}
-            name={item.name}
-            cardActions={cardActions}
-            score={score}
-            winNumber={randomList.length}
-            shuffleList={shuffleList}
-          />
-        );
-      })}
-    </div>
+    !loading && (
+      <div className="grid_container">
+        {list.map((item) => {
+          return (
+            <Card
+              key={item.id}
+              id={item.id}
+              setScore={setScore}
+              src={item.artWork ?? item.dreamWork}
+              name={item.name}
+              cardActions={cardActions}
+              score={score}
+              winNumber={randomList.length}
+              shuffleList={shuffleList}
+            />
+          );
+        })}
+      </div>
+    )
   );
 }

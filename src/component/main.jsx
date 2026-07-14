@@ -39,6 +39,7 @@ export function Main({ setKey, highestScore, setHighestScore }) {
             setScore={setScore}
             score={score}
             setLoading={setLoading}
+            loading={loading}
           />
         </section>
       </main>
