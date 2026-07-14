@@ -1,0 +1,26 @@
+.level {
+  width: 40rem;
+  height: 10rem;
+  background-color: rgba(0, 0, 0, 0.423);
+  margin: 20rem auto;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.level_buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  gap: 1rem;
+}
+
+.level_buttons button {
+  background: rgba(255, 255, 255, 0.691);
+  width: 6rem;
+  height: 3rem;
+  border-radius: 10px;
+  font-weight: var(--font-semi-bold);
+}

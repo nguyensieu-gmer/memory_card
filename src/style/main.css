@@ -1,0 +1,12 @@
+body {
+  ::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url(../assets/background.gif);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+}
