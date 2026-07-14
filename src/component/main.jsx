@@ -5,6 +5,7 @@ import { Score } from "./score.jsx";
 import { Level } from "./gameLevel.jsx";
 import { Result } from "./result.jsx";
 import { Loading } from "./loading.jsx";
+import "../style/main.css";
 
 export function Main({ setKey, highestScore, setHighestScore }) {
   const [loading, setLoading] = useState(true);
