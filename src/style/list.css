@@ -1,6 +1,7 @@
 .grid_container {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 2rem;
 }
 
 .header_component {
@@ -9,9 +10,4 @@
   justify-content: space-between;
   padding: 2rem 1rem;
   background-color: rgba(0, 0, 0, 0.274);
-}
-
-main {
-  position: relative;
-  z-index: 1;
 }

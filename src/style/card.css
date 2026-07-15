@@ -1,0 +1,25 @@
+.item .img_container {
+  background-image: url(../assets/pokemon_backgound.jpg);
+  background-position: center;
+  background-size: cover;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.item {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  height: 21rem;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: rgb(0, 255, 251);
+}
+
+.item .text {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
