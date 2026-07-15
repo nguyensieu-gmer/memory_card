@@ -23,4 +23,4 @@ If you are developing a production application, we recommend using TypeScript wi
 
 # link preview
 
-https://memorycardsieu.netlify.app/
+https://app.netlify.com/projects/memorycardsieu/overview
