@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { List } from "./list.jsx";
 import { Guide } from "./guide.jsx";
 import { Score } from "./score.jsx";
@@ -16,15 +16,17 @@ export function Main({ setKey, highestScore, setHighestScore }) {
   const [endGame, setEndGame] = useState(false);
   const totalScore = randomList.length;
 
-  if (score > highestScore) {
-    setHighestScore(score);
-  }
+  useEffect(() => {
+    if (score > highestScore) {
+      setHighestScore(score);
+    }
+  }, [highestScore, setHighestScore, score]);
 
   const mainComponent = (
     <>
       {loading && <Loading />}
       <main>
-        <header>
+        <header className="header_component">
           <Guide />
           <Score
             currentScore={score}

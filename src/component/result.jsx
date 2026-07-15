@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import "../style/result.css";
 
 export function Result({ setKey, result }) {
   const dialogRef = useRef(null);
@@ -6,13 +7,13 @@ export function Result({ setKey, result }) {
     if (dialogRef.current) {
       dialogRef.current.showModal();
     }
-  });
+  }, []);
   function handleClick() {
     setKey((prev) => prev + 1);
   }
   return (
     <dialog ref={dialogRef}>
-      <div>
+      <div className="result">
         {result ? (
           <h1>Congratulations, You win!</h1>
         ) : (

@@ -1,0 +1,17 @@
+.grid_container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.header_component {
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  background-color: rgba(0, 0, 0, 0.274);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+}

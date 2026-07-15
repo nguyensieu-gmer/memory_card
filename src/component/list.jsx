@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Card } from "./card.jsx";
+import "../style/list.css";
 
 const url = "https://pokeapi.co/api/v2/pokemon/";
 
